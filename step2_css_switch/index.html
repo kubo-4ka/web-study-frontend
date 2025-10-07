@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>STEP2: CSS切替で時代移動</title>
+  <!-- モダンを有効化、レトロはコメントアウト（デモ中に入れ替え） -->
+  <link rel="stylesheet" href="modern.css">
+  <!-- <link rel="stylesheet" href="retro.css"> -->
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="brand">CSS SWITCH</div>
+    <nav class="nav">
+      <a href="#hero">トップ</a>
+      <a href="#cards">カード</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="hero" class="hero">
+      <h1>同じHTMLでも、CSSだけで印象は激変</h1>
+      <p>ソースから「モダン」⇄「レトロ」に切り替えて見比べます。</p>
+    </section>
+
+    <section id="cards" class="cards">
+      <article class="card">
+        <h2>カードA</h2>
+        <p>余白・角丸・影・線の違いを観察。</p>
+        <button class="btn">何かのボタン</button>
+      </article>
+      <article class="card">
+        <h2>カードB</h2>
+        <p>配色とフォントが“時代感”を決めます。</p>
+        <button class="btn">別のボタン</button>
+      </article>
+    </section>
+
+    <section id="faq" class="panel">
+      <h2>FAQ</h2>
+      <details>
+        <summary>JSを使っていますか？</summary>
+        <p>使っていません。HTML、CSSのみです。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; 2025 CSS Switch</small>
+  </footer>
+</body>
+
+</html>

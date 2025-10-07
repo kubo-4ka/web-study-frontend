@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STEP1: HTMLだけデモ</title>
+</head>
+
+<body>
+  <header>
+    <h1>STEP1: HTMLだけでここまでできる</h1>
+    <h3>※できるけどセキュリティ的に非推奨なこともある点は注意</h3>
+    <nav>
+      <ul>
+        <li><a href="#structure">構造</a></li>
+        <li><a href="#accordion">折りたたみ</a></li>
+        <li><a href="#form">フォーム</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <section id="structure">
+      <h2>セマンティック構造</h2>
+      <article>
+        <header>
+          <h3>記事タイトル</h3>
+        </header>
+        <p>HTMLは <code>&lt;header&gt;</code> / <code>&lt;main&gt;</code> / <code>&lt;section&gt;</code> /
+          <code>&lt;article&gt;</code> / <code>&lt;footer&gt;</code> などで意味を表現できます。</p>
+        <footer><small>更新日: <time datetime="2025-10-05">2025/10/05</time></small></footer>
+      </article>
+      <hr>
+    </section>
+
+    <section id="accordion">
+      <h2>折りたたみ（details/summary）</h2>
+      <details>
+        <summary>クリックで開閉（JS不要）</summary>
+        <p>HTML標準機能で開閉UIが作れます。</p>
+      </details>
+      <hr>
+    </section>
+
+    <section id="form">
+      <h2>フォーム（ネイティブバリデーション）</h2>
+      <form action="#" method="get">
+        <p>
+          <label for="email">メール</label>
+          <input id="email" type="email" name="email" placeholder="name@example.com" required>
+        </p>
+        <p>
+          <label for="date">日付</label>
+          <input id="date" type="date" name="date">
+        </p>
+        <p>
+          <button type="submit">送信</button>
+          <button type="reset">リセット</button>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <small>&copy; 2025 HTML Only</small>
+  </footer>
+</body>
+
+</html>

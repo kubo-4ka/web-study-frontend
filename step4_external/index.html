@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>STEP4: 外部連携体験（天気API + クレジット表記）</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <button id="menuBtn" class="icon-btn" aria-controls="sideNav" aria-expanded="false" aria-label="メニュー">
+      <span class="burger" aria-hidden="true"></span>
+    </button>
+    <div class="brand">External API</div>
+    <nav class="top-actions">
+      <button id="weatherBtn" class="btn">東京の天気を取得</button>
+      <!-- <a id="aboutLink" href="#" class="link-ghost" aria-controls="aboutDialog">このサイトについて</a> -->
+    </nav>
+  </header>
+
+  <aside id="sideNav" class="drawer" aria-label="サイドナビ">
+    <nav>
+      <ul>
+        <li><a href="#hero">トップ</a></li>
+        <li><a href="#weather">天気</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="container">
+    <section id="hero" class="hero">
+      <h1>外部連携：fetch() で天気予報を取得してカードに反映</h1>
+      <p>Open-Meteo の日次APIを使います（キー不要）。帰属表示はフッターと「このサイトについて」に記載しています。</p>
+    </section>
+
+    <section id="weather" class="panel">
+      <h2>7日間の天気</h2>
+      <p class="muted small">ボタンを押すと取得します（失敗時はエラーカードを表示）。</p>
+      <div id="forecast" class="cards" aria-live="polite" aria-busy="false"></div>
+    </section>
+
+    <section id="faq" class="panel">
+      <h2>FAQ</h2>
+      <details>
+        <summary>CORSや鍵は？</summary>
+        <p>Open-Meteoは公開APIで鍵不要。CORS許可済みです。</p>
+      </details>
+      <details>
+        <summary>本番では？</summary>
+        <p>レート制限・リトライ・キャッシュ・UIスケルトンなどを追加します。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>
+      Weather data ©
+      <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>,
+      licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+      (Modified for display)
+      ・
+      <a id="aboutLinkFooter" href="#" aria-controls="aboutDialog">このサイトについて</a>
+    </small>
+  </footer>
+
+  <!-- このサイトについて（dialog） -->
+  <dialog id="aboutDialog" class="dialog">
+    <form method="dialog">
+      <header class="dialog__header">
+        <h3 class="dialog__title">このサイトについて</h3>
+        <button value="cancel" aria-label="閉じる" class="icon-btn close-btn">×</button>
+      </header>
+      <section class="dialog__body">
+        <p>このデモはボタン操作時に Open-Meteo から天気予報を取得し、絵文字やカードUIで表示します。</p>
+        <ul>
+          <li>データ出典：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></li>
+          <li>ライセンス：<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC
+              BY 4.0</a>（表示必須・本デモは視覚表示を変更しています）</li>
+          <li>利用規約/プライバシー：<a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener noreferrer">Terms &
+              Privacy</a></li>
+        </ul>
+        <p class="muted small">注：Open-Meteoは技術目的でIP等の非個人情報を収集し、一定期間後にログ削除を行います（詳細は上記リンク参照）。</p>
+      </section>
+      <footer class="dialog__footer">
+        <button value="ok" class="btn">OK</button>
+      </footer>
+    </form>
+  </dialog>
+  <div id="backdrop" class="backdrop" hidden></div>
+</body>
+
+</html>

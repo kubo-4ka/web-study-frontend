@@ -1,0 +1,275 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --card: #1f2937;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --primary: #3b82f6;
+  --radius: 14px;
+  --shadow: 0 10px 24px rgba(0, 0, 0, .35);
+  --gap: 16px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 20% -10%, #1e293b 0, var(--bg) 40%, #0b1222 100%);
+  font: 16px/1.6 var(--font)
+}
+
+/* グローバルリンク：テーマ色に連動 */
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  filter: brightness(1.1);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(17, 24, 39, .8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #334155
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: .06em
+}
+
+.top-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center
+}
+
+.icon-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 10px;
+  display: grid;
+  place-items: center
+}
+
+.icon-btn:hover {
+  background: #1f2937
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  position: relative
+}
+
+.burger::before {
+  position: absolute;
+  transform: translateY(-6px)
+}
+
+.burger::after {
+  position: absolute;
+  transform: translateY(6px)
+}
+
+.drawer {
+  position: fixed;
+  z-index: 30;
+  inset: 0 auto 0 0;
+  width: 260px;
+  transform: translateX(-100%);
+  background: var(--panel);
+  border-right: 1px solid #334155;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  transition: transform .25s ease
+}
+
+.drawer.open {
+  transform: translateX(0)
+}
+
+.drawer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px
+}
+
+.drawer a {
+  text-decoration: none;
+}
+
+.drawer a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px
+}
+
+.hero {
+  background: linear-gradient(135deg, #172554, #0f766e);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow)
+}
+
+.panel {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid #334155;
+  border-radius: var(--radius)
+}
+
+.cards {
+  margin-top: 20px;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #334155;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow)
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 18px
+}
+
+.muted {
+  color: var(--muted)
+}
+
+.small {
+  font-size: 13px
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  transition: transform .06s ease, filter .2s ease
+}
+
+.btn:active {
+  transform: translateY(1px) scale(.99)
+}
+
+.btn:hover {
+  filter: brightness(1.05)
+}
+
+/* テキストリンク風ボタン（テーマ色に連動） */
+.link-ghost {
+  color: var(--primary);
+  text-decoration: underline;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.site-footer {
+  margin: 40px 0 24px;
+  text-align: center;
+  color: var(--muted)
+}
+
+.site-footer a {
+  color: var(--primary);
+}
+
+.dialog {
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 0;
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  width: min(560px, 92vw)
+}
+
+.dialog__header,
+.dialog__footer {
+  padding: 12px 16px;
+  border-bottom: 1px solid #334155
+}
+
+.dialog__footer {
+  border-top: 1px solid #334155;
+  border-bottom: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px
+}
+
+.dialog__body {
+  padding: 16px
+}
+
+.close-btn {
+  font-size: 18px;
+  width: 36px;
+  height: 36px
+}
+
+.backdrop[hidden] {
+  display: none
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .4);
+  z-index: 25
+}

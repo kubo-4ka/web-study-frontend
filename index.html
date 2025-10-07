@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Workshop Menu</title>
+    <meta name="color-scheme" content="dark light">
+    <style>
+        :root {
+            --bg: #0b1222;
+            --panel: #0f172a;
+            --card: #111827;
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+            --primary: #3b82f6;
+            --radius: 16px;
+            --shadow: 0 10px 28px rgba(0, 0, 0, .35);
+            --gap: 16px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+                "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background:
+                radial-gradient(1200px 800px at 15% -10%, #1e293b 0, var(--bg) 40%, #050a16 100%);
+            font: 16px/1.6 var(--font);
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 18px;
+            background: rgba(15, 23, 42, .75);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #334155;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: .06em;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 28px auto;
+            padding: 0 16px;
+            flex: 1;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #172554, #0f766e);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            margin: 0 0 6px;
+            font-size: clamp(22px, 3.5vw, 34px);
+        }
+
+        .cards {
+            margin-top: 22px;
+            display: grid;
+            gap: var(--gap);
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #334155;
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            min-height: 3em;
+        }
+
+        .actions {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            appearance: none;
+            border: 0;
+            cursor: pointer;
+            user-select: none;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            transition: transform .06s ease, filter .2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:hover {
+            filter: brightness(1.05);
+        }
+
+        .btn:active {
+            transform: translateY(1px) scale(.99);
+        }
+
+        .ghost {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid #334155;
+        }
+
+        .meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: #0b3a55;
+            color: #cfe8ff;
+            border: 1px solid #1b435a;
+            font-size: 12px;
+        }
+
+        .site-footer {
+            margin: 30px 0 24px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .list {
+            margin: 10px 0 0;
+            padding: 0 0 0 18px;
+            color: var(--muted);
+        }
+
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        }
+
+        .kbd {
+            font: 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+            background: #0b1930;
+            color: #e5e7eb;
+            border: 1px solid #334155;
+            border-bottom-width: 2px;
+            border-radius: 6px;
+            padding: 2px 6px;
+            display: inline-block;
+        }
+
+        .note {
+            margin-top: 18px;
+            padding: 12px 14px;
+            background: rgba(2, 6, 23, .6);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            color: var(--muted);
+        }
+
+        .grid-2 {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">Workshop Menu</div>
+        <div class="meta">
+            <span class="badge">HTML / CSS / JS only</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" aria-labelledby="h-title">
+            <h1 id="h-title">4ステップで学ぶ：HTML → CSS切替 → 動的JS → 外部API</h1>
+            <div class="grid-2">
+                <p>同じHTMLでも、<strong>CSSだけ</strong>で「時代感」が変わる。
+                    さらに<strong>JavaScript</strong>で状態を変えると、UIが生き生きと動きます。
+                    最後に<strong>fetch()</strong>で外部データをつないで、実用的な体験へ。</p>
+                <ul class="list">
+                    <li><span class="kbd">Step 1</span> HTMLのみ（構造/折りたたみ/ネイティブ検証）</li>
+                    <li><span class="kbd">Step 2</span> CSS切替（モダン↔レトロの“時代移動”）</li>
+                    <li><span class="kbd">Step 3</span> 動的機能（メニュー/色変え/モーダル）</li>
+                    <li><span class="kbd">Step 4</span> 外部API（Open-Meteoで天気表示）</li>
+                </ul>
+            </div>
+            <div class="note">
+                <strong>Tip:</strong> どのステップから始めてもOKです。各ディレクトリの <span class="mono">index.html</span> を開きましょう。
+            </div>
+        </section>
+
+        <section class="cards" aria-label="Steps">
+            <article class="card">
+                <h2>Step 1 — HTML Only</h2>
+                <p>CSS/JS無し。見出し・折りたたみ・フォームのネイティブ機能を体験。</p>
+                <div class="actions">
+                    <a class="btn" href="./step1_html_only/index.html">Open</a>
+                    <a class="btn ghost" href="./step1_html_only/index.html" target="_blank" rel="noopener">New Tab</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h2>Step 2 — CSS Switch (Modern ↔ Retro)</h2>
+                <p>同じHTMLでも、CSSだけで雰囲気は激変。テーマ設計の要点を学ぶ。</p>
+                <div class="actions">
+                    <a class="btn" href="./step2_css_switch/index.html">Open</a>
+                    <a class="btn ghost" href="./step2_css_switch/index.html" target="_blank" rel="noopener">New Tab</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h2>Step 3 — Dynamic JS</h2>
+                <p>ハンバーガー開閉、アクセント色変更、ネイティブモーダル（dialog）。</p>
+                <div class="actions">
+                    <a class="btn" href="./step3_dynamic/index.html">Open</a>
+                    <a class="btn ghost" href="./step3_dynamic/index.html" target="_blank" rel="noopener">New Tab</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h2>Step 4 — External API (Weather)</h2>
+                <p>Open-Meteoから7日間の天気を取得してカード表示。帰属表記込み。</p>
+                <div class="actions">
+                    <a class="btn" href="./step4_external/index.html">Open</a>
+                    <a class="btn ghost" href="./step4_external/index.html" target="_blank" rel="noopener">New Tab</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <small>
+            © 2025 Workshop. Theme color: <span class="mono">--primary</span> /
+            <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (Step4)
+        </small>
+    </footer>
+
+    <noscript>
+        <div class="container" style="color:#fca5a5">
+            このメニューはJavaScript不要ですが、今後のステップで動的な体験をするにはJSを有効にしてください。
+        </div>
+    </noscript>
+</body>
+
+</html>

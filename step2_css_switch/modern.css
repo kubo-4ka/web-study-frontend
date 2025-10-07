@@ -1,0 +1,131 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --card: #1f2937;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --primary: #3b82f6;
+  --radius: 14px;
+  --shadow: 0 10px 24px rgba(0, 0, 0, .35);
+  --gap: 16px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 20% -10%, #1e293b 0, var(--bg) 40%, #0b1222 100%);
+  font: 16px/1.6 var(--font)
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(17, 24, 39, .8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #334155
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: .06em
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 12px
+}
+
+.nav a:hover {
+  text-decoration: underline
+}
+
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px
+}
+
+.hero {
+  background: linear-gradient(135deg, #172554, #0f766e);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow)
+}
+
+.cards {
+  margin-top: 20px;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #334155;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow)
+}
+
+.panel {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid #334155;
+  border-radius: var(--radius)
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+/* ホバーでわずかに明るく・持ち上がる印象 */
+.btn:hover{
+  filter: brightness(1.05);
+}
+
+/* 押下で「沈む」 */
+.btn:active{
+  transform: translateY(1px) scale(.99);
+  filter: brightness(.98);
+  box-shadow: 0 3px 10px rgba(0,0,0,.3);
+}
+
+/* キーボード操作でのフォーカス可視化（アクセシビリティ） */
+.btn:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(59,130,246,.35),    /* 外側リング（--primary系） */
+    0 8px 20px rgba(0,0,0,.35);        /* 既存シャドウを少し強調 */
+}
+
+.site-footer {
+  margin: 40px 0 24px;
+  text-align: center;
+  color: var(--muted)
+}
